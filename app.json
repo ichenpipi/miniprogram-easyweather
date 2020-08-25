@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/weather/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

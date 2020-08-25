@@ -1,6 +1,9 @@
-//app.js
-App({
-  onLaunch: function () {
-    
-  }
-})
+const app = {
+
+  onLaunch() {
+
+  },
+
+};
+
+App(app);

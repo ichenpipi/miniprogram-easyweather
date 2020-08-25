@@ -1,4 +1,4 @@
-.weather {
+.app {
   min-height: 96vh;
   width: 94vw;
   padding: 2vh 3vw;
@@ -10,22 +10,21 @@
 }
 
 /* 搜索 */
-.weather .search {
+.app .search {
   height: 6vh;
   width: 90vw;
   display: flex;
   flex-direction: row;
-  margin-bottom: 2vh;
   align-items: center;
   border-radius: 10rpx;
   background-color: white;
 }
 
 /* 左 */
-.weather .search .left {
+.app .search .left {
   height: 100%;
-  width: 100%;
-  padding-left: 3vw;
+  padding: 0 3vw;
+  flex: 1;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -33,34 +32,35 @@
 }
 
 /* 输入框 */
-.weather .search .left .inputField {
-  height: 100%;
-  width: 100%;
+.app .search .left .inputField {
+  height: inherit;
+  width: inherit;
+  line-height: 6vh;
   font-size: 11pt;
   color: black;
 }
 
 /* 清除按钮 */
-.weather .search .left .clearBtn {
+.app .search .left .clearBtn {
   height: 54rpx;
   width: 60rpx;
 }
 
 /* 分隔符 */
-.weather .search .separator {
+.app .search .separator {
   height: 56rpx;
   width: 2rpx;
   border-left: 2rpx solid gray;
 }
 
 /* 右 */
-.weather .search .right {
+.app .search .right {
   height: 100%;
   width: 20vw;
 }
 
 /* 搜索按钮 */
-.weather .search .right .searchBtn {
+.app .search .right .searchBtn {
   height: 100%;
   width: 100%;
   display: flex;
@@ -69,23 +69,23 @@
 }
 
 /* 搜索按钮图标 */
-.weather .search .right .searchBtn .icon {
+.app .search .right .searchBtn .icon {
   height: 54rpx;
   width: 54rpx;
 }
 
 /* 头部 */
-.weather .header {
+.app .header {
   height: 4vh;
   width: 100%;
-  margin-bottom: 2vh;
+  margin-top: 2vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 /* 信息 */
-.weather .header .info {
+.app .header .info {
   height: 100%;
   display: flex;
   justify-content: flex-start;
@@ -93,25 +93,25 @@
 }
 
 /* 定位图标 */
-.weather .header .info .localImg {
+.app .header .info .localIcon {
   height: 30rpx;
   width: 30rpx;
 }
 
 /* 城市名 */
-.weather .header .info .city {
+.app .header .info .city {
   font-size: 14pt;
   margin-left: 1vw;
 }
 
 /* 日期 */
-.weather .header .info .date {
+.app .header .info .date {
   font-size: 10pt;
   margin-left: 1vw;
 }
 
 /* 更新 */
-.weather .header .update {
+.app .header .update {
   height: 100%;
   display: flex;
   justify-content: flex-end;
@@ -121,20 +121,20 @@
 }
 
 /* 更新图片 */
-.weather .header .update .refreshImg {
+.app .header .update .refreshIcon {
   height: 22rpx;
   width: 22rpx;
   margin-left: 1vw;
 }
 
 /* 今日天气 */
-.weather .today {
+.app .today {
   height: 43vh;
   width: 100%;
-  margin-bottom: 2vh;
+  margin-top: 2vh;
 }
 
-.weather .today .baseInfo {
+.app .today .baseInfo {
   height: 22vh;
   width: 100%;
   display: flex;
@@ -143,7 +143,7 @@
 }
 
 /* 温度 */
-.weather .today .baseInfo .temperature {
+.app .today .baseInfo .temperature {
   height: 100%;
   width: 37.5%;
   display: flex;
@@ -153,14 +153,14 @@
 }
 
 /* ℃ */
-.weather .today .baseInfo .temperature .symbol {
+.app .today .baseInfo .temperature .symbol {
   font-size: 20pt;
   align-self: flex-start;
   padding-top: 5vh;
 }
 
 /* 天气图片 */
-.weather .today .baseInfo .weatherImg {
+.app .today .baseInfo .weatherIcon {
   height: 100%;
   width: 37.5%;
   display: flex;
@@ -168,13 +168,13 @@
   align-items: center;
 }
 
-.weather .today .baseInfo .weatherImg .img {
+.app .today .baseInfo .weatherIcon .image {
   height: 176.25rpx;
   width: 176.25rpx;
 }
 
 /* 温度详情 */
-.weather .today .baseInfo .detail {
+.app .today .baseInfo .detail {
   height: 100;
   width: 25%;
   padding-left: 2vw;
@@ -185,7 +185,7 @@
   background-color: rgba(0, 0, 0, 0.03);
 }
 
-.weather .today .baseInfo .detail .type {
+.app .today .baseInfo .detail .type {
   height: 6vh;
   width: 100%;
   display: flex;
@@ -195,7 +195,7 @@
   font-weight: bold;
 }
 
-.weather .today .baseInfo .detail .temperature {
+.app .today .baseInfo .detail .temperature {
   height: 6vh;
   width: 100%;
   display: flex;
@@ -205,7 +205,7 @@
 }
 
 /* 更多信息 */
-.weather .today .moreInfo {
+.app .today .moreInfo {
   height: 20vh;
   width: 100%;
   margin-top: 1vh;
@@ -218,7 +218,7 @@
   font-size: 10pt;
 }
 
-.weather .today .moreInfo .item {
+.app .today .moreInfo .item {
   height: 50%;
   width: 32%;
   display: flex;
@@ -227,29 +227,29 @@
   align-items: center;
 }
 
-.weather .today .moreInfo .separator {
+.app .today .moreInfo .separator {
   height: 50rpx;
   width: 2rpx;
   border-left: 2rpx solid gray;
 }
 
 /* 未来天气预报 */
-.weather .forecast {
+.app .forecast {
   height: 21vh;
   width: 100%;
-  margin-bottom: 2vh;
+  margin-top: 2vh;
   border-radius: 20rpx;
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-.weather .forecast .block {
+.app .forecast .block {
   display: flex;
   flex-direction: row;
   align-items: center;
   font-size: 10pt;
 }
 
-.weather .forecast .blank {
+.app .forecast .blank {
   height: 100%;
   width: 10%;
   display: flex;
@@ -258,12 +258,12 @@
   font-size: 15pt;
 }
 
-.weather .forecast .container {
+.app .forecast .container {
   height: 100%;
   width: 80%;
 }
 
-.weather .forecast .item {
+.app .forecast .item {
   height: 7vh;
   width: 100%;
   display: flex;
@@ -273,35 +273,36 @@
   justify-content: space-between;
 }
 
-.weather .forecast .separator {
+.app .forecast .separator {
   width: 100%;
   height: 2rpx;
   border-top: 2rpx solid gray;
 }
 
-.weather .forecast .info {
+.app .forecast .info {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.weather .forecast .icon {
+.app .forecast .icon {
   height: 60rpx;
   width: 60rpx;
   margin-right: 1vw;
 }
 
 /* 箭头图片 */
-.arrowImg {
+.arrowIcon {
   height: 50rpx;
   width: 40rpx;
 }
 
 /* 出行建议 */
-.weather .suggestion {
+.app .suggestion {
   height: 14vh;
   width: 100%;
+  margin-top: 2vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -310,7 +311,7 @@
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-.weather .suggestion .item {
+.app .suggestion .item {
   height: 14vh;
   width: 20%;
   display: flex;
@@ -319,16 +320,16 @@
   align-items: center;
 }
 
-.weather .suggestion .icon {
+.app .suggestion .icon {
   height: 80rpx;
   width: 80rpx;
 }
 
-.weather .suggestion .type {
+.app .suggestion .type {
   font-size: 8pt;
   color: gray;
 }
 
-.weather .suggestion .content {
+.app .suggestion .content {
   font-size: 10pt;
 }

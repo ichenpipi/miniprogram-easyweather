@@ -1,0 +1,150 @@
+<view class="weather">
+	<!-- 搜索 -->
+	<view class="search">
+		<!-- 输入框 -->
+		<view class="left">
+			<input class="inputField" confirm-type="search" bindinput="onInputFieldChange" bindconfirm="onSearchBtnClick" placeholder="请输入城市名" value="{{inputContent}}" />
+			<!-- 清除按钮 -->
+			<image class="clearBtn" src="../../images/clear.png" style="display:{{inputContent.length > 0 ? 'block' : 'none'}}" bindtap="onClearBtnClick"></image>
+		</view>
+		<!-- 分割线 -->
+		<view class="separator"></view>
+		<!-- 搜索按钮 -->
+		<view class="right">
+			<view class="searchBtn" bindtap="onSearchBtnClick">
+				<image class="icon" src="../../images/search.png"></image>
+			</view>
+		</view>
+	</view>
+
+	<!-- 地址、时间、更新时间 -->
+	<view class="header">
+		<!-- 地址、时间 -->
+		<view class="info" bindtap="onLocalBtnClick">
+			<image class="localImg" src="../../images/location.png"></image>
+			<view class="city">{{weatherInfo.city.name}}</view>
+			<view class="date">（{{date}}）</view>
+		</view>
+		<!-- 更新时间、刷新按钮 -->
+		<view class="update" bindtap="onRefreshBtnClick">{{weatherInfo.now.temperature_time}} 更新
+			<image class="refreshImg" src="../../images/refresh.png"></image>
+		</view>
+	</view>
+
+	<!-- 今日天气信息 -->
+	<view class="today">
+		<view class="baseInfo">
+			<!-- 温度 -->
+			<view class="temperature">{{weatherInfo.now.temperature}}
+				<view class="symbol">℃</view>
+			</view>
+			<!-- 图片 -->
+			<view class="weatherImg">
+				<image class="img" src="{{weatherInfo.now.weather_pic}}"></image>
+			</view>
+			<!-- 全天 -->
+			<view class="detail">
+				<view class="type">{{weatherInfo.now.weather}}</view>
+				<view class="temperature">白天：{{weatherInfo.today.day_air_temperature}} ℃</view>
+				<view class="temperature">夜晚：{{weatherInfo.today.night_air_temperature}} ℃</view>
+			</view>
+		</view>
+		<!-- 其他信息 -->
+		<view class="moreInfo">
+			<!-- 1 -->
+			<view class="item">空气：{{weatherInfo.now.aqiDetail.quality}}</view>
+			<view class="separator"></view>
+			<view class="item">湿度：{{weatherInfo.now.sd}}</view>
+			<view class="separator"></view>
+			<view class="item">PM 2.5：{{weatherInfo.now.aqiDetail.pm2_5}}</view>
+			<!-- 2 -->
+			<view class="item">气压：{{weatherInfo.today.air_press}}</view>
+			<view class="separator"></view>
+			<view class="item">风向：{{weatherInfo.now.wind_direction}}</view>
+			<view class="separator"></view>
+			<view class="item">{{weatherInfo.today.day_wind_power}}</view>
+		</view>
+	</view>
+
+	<!-- 天气预报 -->
+	<swiper class="forecast" autoplay="true" interval="5000" circular="true">
+		<!-- 第一页 -->
+		<swiper-item class="block">
+			<!-- 前空白部分 -->
+			<view class="blank"></view>
+			<!-- 天气信息 -->
+			<view class="container">
+				<view wx:for="{{weatherInfo.forecast1}}" wx:for-index="index" wx:for-item="forecast" wx:key="weekday">
+					<view class="separator" wx:if="{{index===1}}"></view>
+					<view class="item">
+						<view>{{forecast.weekday}}</view>
+						<view class="info">
+							<image class="icon" src="{{forecast.day_weather_pic}}"></image>
+							<view class="type">{{forecast.day_weather}} / {{forecast.night_weather}}</view>
+						</view>
+						<view>{{forecast.day_air_temperature}} / {{forecast.night_air_temperature}} ℃</view>
+					</view>
+					<view class="separator" wx:if="{{index===1}}"></view>
+				</view>
+			</view>
+			<!-- 后空白部分 -->
+			<view class="blank">
+				<image class="arrowImg" style="display:block" src="../../images/arrow.png"></image>
+			</view>
+		</swiper-item>
+		<!-- 第二页 -->
+		<swiper-item class="block">
+			<!--前空白部分-->
+			<view class="blank"></view>
+			<!-- 天气信息 -->
+			<view class="container">
+				<view wx:for="{{weatherInfo.forecast2}}" wx:for-index="index" wx:for-item="forecast" wx:key="weekday">
+					<view class="separator" wx:if="{{index===1}}"></view>
+					<view class="item">
+						<view>{{forecast.weekday}}</view>
+						<view class="info">
+							<image class="icon" src="{{forecast.day_weather_pic}}"></image>
+							<view class="type">{{forecast.day_weather}} / {{forecast.night_weather}}</view>
+						</view>
+						<view>{{forecast.day_air_temperature}} / {{forecast.night_air_temperature}} ℃</view>
+					</view>
+					<view class="separator" wx:if="{{index===1}}"></view>
+				</view>
+			</view>
+			<!-- 后空白部分 -->
+			<view class="blank">
+				<image class="arrowImg" style="display:block" src="../../images/arrow.png"></image>
+			</view>
+		</swiper-item>
+	</swiper>
+
+	<!-- 出行建议 -->
+	<view class="suggestion">
+		<view class="item">
+			<image class="icon" src="../../images/suggestion/uv.png"></image>
+			<view class="type">紫外线指数</view>
+			<view class="content">{{ weatherInfo.today.index.uv.title}}</view>
+		</view>
+		<view class="item">
+			<image class="icon" src="../../images/suggestion/dressing.png"></image>
+			<view class="type">穿衣指数</view>
+			<view class="content">{{ weatherInfo.today.index.clothes.title}}</view>
+		</view>
+		<view class="item">
+			<image class="icon" src="../../images/suggestion/sport.png"></image>
+			<view class="type">运动指数</view>
+			<view class="content">{{ weatherInfo.today.index.sports.title}}</view>
+		</view>
+		<view class="item">
+			<image class="icon" src="../../images/suggestion/car_washing.png"></image>
+			<view class="type">洗车指数</view>
+			<view class="content">{{ weatherInfo.today.index.wash_car.title}}</view>
+		</view>
+		<view class="item">
+			<image class="icon" src="../../images/suggestion/flu.png"></image>
+			<view class="type">感冒指数</view>
+			<view class="content">{{ weatherInfo.today.index.cold.title}}</view>
+		</view>
+	</view>
+
+</view>
